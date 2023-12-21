@@ -6,7 +6,7 @@
 /*   By: aelbouaa <aelbouaa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/14 17:43:07 by aelbouaa          #+#    #+#             */
-/*   Updated: 2023/12/18 19:02:01 by aelbouaa         ###   ########.fr       */
+/*   Updated: 2023/12/21 05:54:53 by aelbouaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -156,29 +156,35 @@ std::string CheckForCommand()
     }
 }
 
-int main()
+int main(int ac, char **av)
 {
     std::string command;
     PhoneBook   book;
     int         i = 0;
     int         contacts = 0;
-    
-    while (1)
+    (void)av;
+
+    if (ac == 1)
     {
-        command = CheckForCommand();
-        if ("ADD" == command)
+        while (1)
         {
-            CommandAdd(book, i);
-            i++;
-            if (contacts <= 7)
-                contacts = i;
-            if (i == 8)
-                i = 0; 
+            command = CheckForCommand();
+            if ("ADD" == command)
+            {
+                CommandAdd(book, i);
+                i++;
+                if (contacts <= 7)
+                    contacts = i;
+                if (i == 8)
+                    i = 0; 
+            }
+            else if ("SEARCH" == command)
+                CommandSearch(book, contacts);
+            else if ("EXIT" == command)
+                exit (0);
         }
-        else if ("SEARCH" == command)
-            CommandSearch(book, contacts);
-        else if ("EXIT" == command)
-            exit (0);
     }
+    else
+        std::cout << "\033[1;31mNo argument required\033[0;0m" << std::endl;
     
 }
