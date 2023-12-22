@@ -1,28 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Weapon.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aelbouaa <aelbouaa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/21 19:48:16 by aelbouaa          #+#    #+#             */
-/*   Updated: 2023/12/21 20:56:04 by aelbouaa         ###   ########.fr       */
+/*   Created: 2023/12/21 23:31:09 by aelbouaa          #+#    #+#             */
+/*   Updated: 2023/12/22 03:52:25 by aelbouaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#pragma once
+
 #include <iostream>
 
-int main()
+class Weapon
 {
-    std::string str = "HI THIS IS BRAIN";
-    std::string *p = &str;
-    std::string &s = str;
+private:
+    std::string type;
 
-    std::cout << &str << std::endl;
-    std::cout << p << std::endl;
-    std::cout << &s << std::endl;
-    
-    std::cout << str << std::endl;
-    std::cout << *p << std::endl;
-    std::cout << s << std::endl;
-}
+public:
+    Weapon( std::string Type);
+    ~Weapon();
+    void    setType( std::string type);
+    const std::string&  getType( void ) const;
+};

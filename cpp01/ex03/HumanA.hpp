@@ -1,28 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   HumanA.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aelbouaa <aelbouaa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/21 19:48:16 by aelbouaa          #+#    #+#             */
-/*   Updated: 2023/12/21 20:56:04 by aelbouaa         ###   ########.fr       */
+/*   Created: 2023/12/21 23:31:56 by aelbouaa          #+#    #+#             */
+/*   Updated: 2023/12/22 05:05:22 by aelbouaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
 
-int main()
+#pragma once
+
+#include "Weapon.hpp"
+
+class HumanA
 {
-    std::string str = "HI THIS IS BRAIN";
-    std::string *p = &str;
-    std::string &s = str;
+private:
+    std::string name;
+    Weapon& weapon;
+public:
+    HumanA(std::string Name, Weapon& we);
+    ~HumanA();
+    void    attack();
 
-    std::cout << &str << std::endl;
-    std::cout << p << std::endl;
-    std::cout << &s << std::endl;
-    
-    std::cout << str << std::endl;
-    std::cout << *p << std::endl;
-    std::cout << s << std::endl;
-}
+};

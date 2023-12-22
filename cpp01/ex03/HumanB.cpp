@@ -1,28 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   HumanB.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aelbouaa <aelbouaa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/21 19:48:16 by aelbouaa          #+#    #+#             */
-/*   Updated: 2023/12/21 20:56:04 by aelbouaa         ###   ########.fr       */
+/*   Created: 2023/12/21 23:32:18 by aelbouaa          #+#    #+#             */
+/*   Updated: 2023/12/22 04:00:04 by aelbouaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
+#include "HumanB.hpp"
 
-int main()
+HumanB::HumanB(std::string Name) : name(Name){};
+
+HumanB::~HumanB(){};
+
+void    HumanB::attack()
 {
-    std::string str = "HI THIS IS BRAIN";
-    std::string *p = &str;
-    std::string &s = str;
-
-    std::cout << &str << std::endl;
-    std::cout << p << std::endl;
-    std::cout << &s << std::endl;
-    
-    std::cout << str << std::endl;
-    std::cout << *p << std::endl;
-    std::cout << s << std::endl;
+    std::cout << name << " attacks with their " << weapon->getType() << std::endl;
 }
+
+void    HumanB::setWeapon( Weapon &we)
+{
+    weapon = &we;
+}
+

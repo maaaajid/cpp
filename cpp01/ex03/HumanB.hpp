@@ -1,28 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   HumanB.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aelbouaa <aelbouaa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/21 19:48:16 by aelbouaa          #+#    #+#             */
-/*   Updated: 2023/12/21 20:56:04 by aelbouaa         ###   ########.fr       */
+/*   Created: 2023/12/22 02:07:09 by aelbouaa          #+#    #+#             */
+/*   Updated: 2023/12/22 03:59:37 by aelbouaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
+#include "Weapon.hpp"
 
-int main()
+class HumanB
 {
-    std::string str = "HI THIS IS BRAIN";
-    std::string *p = &str;
-    std::string &s = str;
-
-    std::cout << &str << std::endl;
-    std::cout << p << std::endl;
-    std::cout << &s << std::endl;
-    
-    std::cout << str << std::endl;
-    std::cout << *p << std::endl;
-    std::cout << s << std::endl;
-}
+private:
+    std::string name;
+    Weapon *weapon;
+public:
+    HumanB(std::string Name);
+    ~HumanB();
+    void    attack();
+    void    setWeapon(Weapon &we);
+};
