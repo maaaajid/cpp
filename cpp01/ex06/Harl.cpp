@@ -6,7 +6,7 @@
 /*   By: aelbouaa <aelbouaa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/24 06:56:51 by aelbouaa          #+#    #+#             */
-/*   Updated: 2023/12/24 12:47:24 by aelbouaa         ###   ########.fr       */
+/*   Updated: 2023/12/24 12:51:58 by aelbouaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,19 +35,30 @@ void    Harl::error( void )
     std::cout <<  "This is unacceptable! I want to speak to the manager now." << std::endl;
 }
 void    Harl::complain( std::string level)
-{
-   void (Harl::*ptr[4]) (void) = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
-   std::string input[4];
-   int x = 0;
-
-   input[0] = "debug";
-   input[1] = "info";
-   input[2] = "warning";
-   input[3] = "error";
-   while (x < 4)
-   {
-        if (level == input[x])
-            (this->*ptr[x])();
+{ 
+    void (Harl::*ptr[4]) (void) = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
+    std::string input[4];
+    int x = 0;  
+    input[0] = "DEBUG";
+    input[1] = "INFO";
+    input[2] = "WARNING";
+    input[3] = "ERROR";
+    while (input[x] !=  level && x < 4)
         x++;
-   }
+    switch (x)
+    {
+    case 0:
+        (this->*ptr[0])();
+    case 1:
+        (this->*ptr[1])();
+    case 2:
+        (this->*ptr[2])();
+    case 3:
+        (this->*ptr[3])();
+        break;
+    default:
+        std::cout << "[ Probably complaining about insignificant problems ]" << std::endl;
+        break;
+    }  
+
 }

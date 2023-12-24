@@ -5,22 +5,20 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: aelbouaa <aelbouaa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/24 06:56:01 by aelbouaa          #+#    #+#             */
-/*   Updated: 2023/12/24 12:09:02 by aelbouaa         ###   ########.fr       */
+/*   Created: 2023/12/24 09:50:37 by aelbouaa          #+#    #+#             */
+/*   Updated: 2023/12/24 12:52:27 by aelbouaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"Harl.hpp"
+#include "Harl.hpp"
 
-int main()
+int main(int ac,char **av)
 {
-    Harl harl;
-    harl.complain("error");
-    harl.complain("warning");
-    harl.complain("debug");
-    harl.complain("warning");
-    harl.complain("info");
-    harl.complain("error");
-    harl.complain("debug");
-    harl.complain("wang");
+    if (ac == 2)
+    {
+        Harl harl;
+        harl.complain(av[1]);
+    }
+    else
+        std::cout << "invalide input" << std::endl;
 }
