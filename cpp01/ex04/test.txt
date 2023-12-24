@@ -1,0 +1,21 @@
+Include the iostream header file in the program to use its functions.i
+Include the fstream header file in the program to use its classes.
+Include the std namespace in the program to use its classes without calling it.
+Call the main() function. The program logic should be added within the body of this function.
+Create an instance of the fstream class and give it the name my_file.
+Use the open() function to create a new file named my_file.txt. The file will be opened in the in mode for reading from it.
+Use an if statement to check whether the file does not exist.
+Text to print on the console if the file is not found.
+End of the body of the if statement.
+Use an else statement to state what to do if the file is found.
+Create a char variable named ch.
+Create a while loop for iterating over the file contents.
+Write/store contents of the file in the variable ch.
+Use an if condition and eof() function that is, end of the file, to ensure the compiler keeps on reading from the file if the end is not reached.
+Use a break statement to stop reading from the file once the end is reached.
+Print the contents of variable ch on the console.
+End of the while body.
+End of the body of the else statement.
+Call the close() function to close the fileeee.
+The program must return value upon successful completion.
+End of the body of the main() function.
