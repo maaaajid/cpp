@@ -6,11 +6,11 @@
 #    By: aelbouaa <aelbouaa@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/05 00:42:27 by aelbouaa          #+#    #+#              #
-#    Updated: 2024/01/05 02:41:08 by aelbouaa         ###   ########.fr        #
+#    Updated: 2024/01/05 03:16:48 by aelbouaa         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = a.out
+NAME = Fixed
 
 CXX = c++
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98 
