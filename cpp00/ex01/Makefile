@@ -6,7 +6,7 @@
 #    By: aelbouaa <aelbouaa@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/19 11:48:22 by aelbouaa          #+#    #+#              #
-#    Updated: 2023/12/19 11:48:23 by aelbouaa         ###   ########.fr        #
+#    Updated: 2024/01/12 04:38:34 by aelbouaa         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,15 +18,11 @@ CXX = c++
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98
 
 SRCS = PhoneBook.cpp Contact.cpp
-OBJS = $(SRCS:.cpp=.o)
 
 all : $(NAME)
 
-$(NAME) : $(OBJS)
-	$(CXX) $(CPPFLAGS) $(OBJS) -o $(NAME)
-
-%.o: %.cpp
-	$(CXX) $(CPPFLAGS) -c $< -o $@
+$(NAME) :
+	$(CXX) $(CPPFLAGS) $(SRCS) -o $(NAME)
 
 clean :
 	rm -f $(OBJS)

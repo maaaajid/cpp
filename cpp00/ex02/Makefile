@@ -6,7 +6,7 @@
 #    By: aelbouaa <aelbouaa@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/19 11:47:48 by aelbouaa          #+#    #+#              #
-#    Updated: 2023/12/19 11:49:33 by aelbouaa         ###   ########.fr        #
+#    Updated: 2024/01/11 05:32:04 by aelbouaa         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,20 +16,16 @@ CXX = c++
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98
 
 SRCS = tests.cpp Account.cpp
-OBJS = $(SRCS:.cpp=.o)
 
 all : $(NAME)
 
-$(NAME) : $(OBJS)
-	$(CXX) $(CPPFLAGS) $(OBJS) -o $(NAME)
-
-%.o: %.cpp
-	$(CXX) $(CPPFLAGS) -c $< -o $@
+$(NAME) :
+	$(CXX) $(CPPFLAGS) $(SRCS) -o $(NAME)
 
 clean :
-	rm -f $(OBJS)
+	rm -f $(NAME)
 
-fclean : clean
+fclean :
 	rm -f $(NAME)
 
 re : fclean all

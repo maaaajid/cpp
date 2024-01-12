@@ -6,7 +6,7 @@
 /*   By: aelbouaa <aelbouaa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 14:21:41 by aelbouaa          #+#    #+#             */
-/*   Updated: 2023/12/16 14:02:10 by aelbouaa         ###   ########.fr       */
+/*   Updated: 2024/01/12 04:03:18 by aelbouaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,10 @@
 
 class PhoneBook
 {
-public :
+private:
     Contact contact[8];
+
+public:
+    void    CommandAdd(int i);
+    void    CommandSearch(int i);
 };

@@ -6,7 +6,7 @@
 /*   By: aelbouaa <aelbouaa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 19:12:33 by aelbouaa          #+#    #+#             */
-/*   Updated: 2023/12/21 03:54:11 by aelbouaa         ###   ########.fr       */
+/*   Updated: 2024/01/11 08:09:18 by aelbouaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int main()
 {
     Zombie *first;
     randomChump("majid");  
-    randomChump("omar"); 
+    randomChump("bouaami"); 
     first = newZombie("aelbouaa"); 
     first->announce();
     delete first;

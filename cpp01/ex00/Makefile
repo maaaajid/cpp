@@ -6,7 +6,7 @@
 #    By: aelbouaa <aelbouaa@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/20 19:14:07 by aelbouaa          #+#    #+#              #
-#    Updated: 2023/12/20 19:16:10 by aelbouaa         ###   ########.fr        #
+#    Updated: 2024/01/11 08:10:00 by aelbouaa         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,18 +16,15 @@ CXX = c++
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98
 
 SRCS = Zombie.cpp main.cpp newZombie.cpp randomChump.cpp
-OBJS = $(SRCS:.cpp=.o)
+
 
 all : $(NAME)
 
-$(NAME) : $(OBJS)
-	$(CXX) $(CPPFLAGS) $(OBJS) -o $(NAME)
-
-%.o: %.cpp
-	$(CXX) $(CPPFLAGS) -c $< -o $@
+$(NAME) :
+	$(CXX) $(CPPFLAGS) $(SRCS) -o $(NAME)
 
 clean :
-	rm -f $(OBJS)
+	rm -f $(NAME)
 
 fclean : clean
 	rm -f $(NAME)

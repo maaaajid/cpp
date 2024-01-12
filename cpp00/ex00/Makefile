@@ -6,32 +6,29 @@
 #    By: aelbouaa <aelbouaa@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/19 11:48:31 by aelbouaa          #+#    #+#              #
-#    Updated: 2023/12/19 11:48:32 by aelbouaa         ###   ########.fr        #
+#    Updated: 2024/01/11 05:12:55 by aelbouaa         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 
 
-NAME = Megaphone
+NAME = megaphone
 
 CC = c++
 FLAGS = -Wall -Wextra -Werror -std=c++98
 
 SRCS = megaphone.cpp
-OBJS = $(SRCS:.cpp=.o)
 
 all : $(NAME)
 
-$(NAME) : $(OBJS)
-	$(CC) $(FLAGS) $(OBJS) -o $(NAME)
+$(NAME) :
+	$(CC) $(FLAGS) $(SRCS) -o $(NAME)
 
-%.o: %.cpp
-	$(CC) $(FLAGS) -c $< -o $@
 
 clean :
-	rm -f $(OBJS)
+	rm -f $(NAME)
 
-fclean : clean
+fclean :
 	rm -f $(NAME)
 
 re : fclean all

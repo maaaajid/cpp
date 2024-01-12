@@ -6,7 +6,7 @@
 /*   By: aelbouaa <aelbouaa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/14 17:43:07 by aelbouaa          #+#    #+#             */
-/*   Updated: 2023/12/21 05:54:53 by aelbouaa         ###   ########.fr       */
+/*   Updated: 2024/01/12 04:41:17 by aelbouaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ void    contactPut(std::string contact)
 }
 
 
-void    CommandSearch(PhoneBook book, int i)
+void    PhoneBook::CommandSearch(int i)
 {
     std::string input;
     int x = 0;
@@ -75,9 +75,9 @@ void    CommandSearch(PhoneBook book, int i)
     while (x < i)
     {
         std::cout << "\033[1;32m|          " << x + 1 << "|\033[0m";
-        contactPut(book.contact[x].getFirstName());
-        contactPut(book.contact[x].getLastName());
-        contactPut(book.contact[x].getNickName());
+        contactPut(contact[x].getFirstName());
+        contactPut(contact[x].getLastName());
+        contactPut(contact[x].getNickName());
         std::cout << "\n";
         std::cout << "\033[1;32m==============================================\n\033[0m";
         x++;
@@ -93,11 +93,11 @@ void    CommandSearch(PhoneBook book, int i)
             std::cout << "\033[1;32m========================================================\n\033[0m";
             std::cout << "\033[1;32m| FirstName|  LastName|  NickName|PhoneNumb.|DarkSecret|\n\033[0m";
             std::cout << "\033[1;32m========================================================\n|\033[0m";
-            contactPut(book.contact[x - 1].getFirstName());
-            contactPut(book.contact[x - 1].getLastName());
-            contactPut(book.contact[x - 1].getNickName());
-            contactPut(book.contact[x - 1].getPhoneNumber());
-            contactPut(book.contact[x - 1].getDarkSecret());
+            contactPut(contact[x - 1].getFirstName());
+            contactPut(contact[x - 1].getLastName());
+            contactPut(contact[x - 1].getNickName());
+            contactPut(contact[x - 1].getPhoneNumber());
+            contactPut(contact[x - 1].getDarkSecret());
             std::cout << "\n";
             std::cout << "\033[1;32m========================================================\n\033[0m";
     }
@@ -125,13 +125,13 @@ std::string     GitData(std::string promt)
     }
 }
 
-void    CommandAdd(PhoneBook& book, int i)
+void    PhoneBook::CommandAdd(int i)
 {
-    book.contact[i].setFirstName(GitData("first name:"));
-    book.contact[i].setLastName(GitData("last name:"));
-    book.contact[i].setNickName(GitData("nick name:"));
-    book.contact[i].setPhoneNamber(GitData("phone number:"));
-    book.contact[i].setDarkSecret(GitData("dark secret:"));
+    contact[i].setFirstName(GitData("first name:"));
+    contact[i].setLastName(GitData("last name:"));
+    contact[i].setNickName(GitData("nick name:"));
+    contact[i].setPhoneNamber(GitData("phone number:"));
+    contact[i].setDarkSecret(GitData("dark secret:"));
     std::cout << "\033[1;32m<<<<Contact has been added>>>>\033[0m" << std::endl;
 }
 
@@ -171,7 +171,7 @@ int main(int ac, char **av)
             command = CheckForCommand();
             if ("ADD" == command)
             {
-                CommandAdd(book, i);
+                book.CommandAdd(i);
                 i++;
                 if (contacts <= 7)
                     contacts = i;
@@ -179,7 +179,7 @@ int main(int ac, char **av)
                     i = 0; 
             }
             else if ("SEARCH" == command)
-                CommandSearch(book, contacts);
+                book.CommandSearch(contacts);
             else if ("EXIT" == command)
                 exit (0);
         }
