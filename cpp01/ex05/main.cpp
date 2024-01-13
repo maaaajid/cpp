@@ -6,7 +6,7 @@
 /*   By: aelbouaa <aelbouaa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/24 06:56:01 by aelbouaa          #+#    #+#             */
-/*   Updated: 2023/12/24 12:09:02 by aelbouaa         ###   ########.fr       */
+/*   Updated: 2024/01/13 18:10:05 by aelbouaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,9 @@
 int main()
 {
     Harl harl;
-    harl.complain("error");
-    harl.complain("warning");
-    harl.complain("debug");
-    harl.complain("warning");
-    harl.complain("info");
-    harl.complain("error");
-    harl.complain("debug");
-    harl.complain("wang");
+    harl.complain("DEBUG");
+    harl.complain("WARNING");
+    harl.complain("hello");
+    harl.complain("INFO");
+
 }

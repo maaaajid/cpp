@@ -6,7 +6,7 @@
 /*   By: aelbouaa <aelbouaa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/22 05:18:01 by aelbouaa          #+#    #+#             */
-/*   Updated: 2023/12/24 06:33:29 by aelbouaa         ###   ########.fr       */
+/*   Updated: 2024/01/13 17:45:31 by aelbouaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,9 +44,10 @@ int main(int ac, char **av)
     if (ac == 4)
     {
         std::string name = av[1];
-        name = name + ".replace";
         std::string TheLine;
         std::fstream TheFile;
+
+        name = name + ".replace";
         TheFile.open(av[1], std::ios::in);
         if (!TheFile)
         {

@@ -6,12 +6,11 @@
 /*   By: aelbouaa <aelbouaa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 23:31:56 by aelbouaa          #+#    #+#             */
-/*   Updated: 2023/12/22 05:05:22 by aelbouaa         ###   ########.fr       */
+/*   Updated: 2024/01/13 17:22:34 by aelbouaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
-#pragma once
+# pragma once
 
 #include "Weapon.hpp"
 
