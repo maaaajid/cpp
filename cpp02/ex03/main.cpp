@@ -6,7 +6,7 @@
 /*   By: aelbouaa <aelbouaa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/08 19:05:27 by aelbouaa          #+#    #+#             */
-/*   Updated: 2024/01/09 23:15:24 by aelbouaa         ###   ########.fr       */
+/*   Updated: 2024/01/15 02:48:27 by aelbouaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 int main()
 {
-    Point a(78, 15);
-    Point b(50, 18);
-    Point c(25, 70);
-    Point d(27, 69);
+    Point a(-1, -2);
+    Point b(3, 6);
+    Point c(8, 1);
+    Point d(3, 6);
     std::cout << bsp(a, b, c, d) << std::endl;
 }

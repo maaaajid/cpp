@@ -6,7 +6,7 @@
 /*   By: aelbouaa <aelbouaa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 21:45:51 by aelbouaa          #+#    #+#             */
-/*   Updated: 2024/01/08 17:21:34 by aelbouaa         ###   ########.fr       */
+/*   Updated: 2024/01/15 13:48:27 by aelbouaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -154,9 +154,8 @@ Fixed&  Fixed::operator++()
     return (*this);
 }
 
-Fixed  Fixed::operator++(int n)
+Fixed  Fixed::operator++(int)
 {
-    (void)n;
     Fixed tmp = *this;
     ++Number;
     return (tmp);
@@ -168,9 +167,8 @@ Fixed&  Fixed::operator--()
     return (*this);
 }
 
-Fixed  Fixed::operator--(int n)
+Fixed  Fixed::operator--(int)
 {
-    (void)n;
     Fixed tmp = *this;
     --Number;
     return (tmp);
@@ -202,6 +200,7 @@ Fixed&  Fixed::max(Fixed& a, Fixed& b)
 
 const Fixed&  Fixed::max(const Fixed& a, const Fixed& b)
 {
+    std::cout << "const\n";
     if (a >= b)
         return (a);
     else

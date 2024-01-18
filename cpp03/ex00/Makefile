@@ -5,17 +5,17 @@
 #                                                     +:+ +:+         +:+      #
 #    By: aelbouaa <aelbouaa@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/12/19 11:47:48 by aelbouaa          #+#    #+#              #
-#    Updated: 2024/01/15 03:18:11 by aelbouaa         ###   ########.fr        #
+#    Created: 2024/01/16 19:17:17 by aelbouaa          #+#    #+#              #
+#    Updated: 2024/01/16 19:22:24 by aelbouaa         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = Account
+NAME = ClapTrap
 
 CXX = c++
-CPPFLAGS = -Wall -Wextra -Werror -std=c++98 -fsanitize=address
+CPPFLAGS = -Wall -Wextra -Werror -std=c++98 
 
-SRCS = tests.cpp Account.cpp
+SRCS = main.cpp ClapTrap.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 

@@ -5,17 +5,17 @@
 #                                                     +:+ +:+         +:+      #
 #    By: aelbouaa <aelbouaa@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/12/19 11:47:48 by aelbouaa          #+#    #+#              #
-#    Updated: 2024/01/15 03:18:11 by aelbouaa         ###   ########.fr        #
+#    Created: 2024/01/17 22:53:37 by aelbouaa          #+#    #+#              #
+#    Updated: 2024/01/18 01:10:43 by aelbouaa         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = Account
+NAME = ScavTrap
 
 CXX = c++
-CPPFLAGS = -Wall -Wextra -Werror -std=c++98 -fsanitize=address
+CPPFLAGS = -Wall -Wextra -Werror -std=c++98 
 
-SRCS = tests.cpp Account.cpp
+SRCS = main.cpp ClapTrap.cpp ScavTrap.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 

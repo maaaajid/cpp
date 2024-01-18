@@ -5,22 +5,22 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: aelbouaa <aelbouaa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/05 00:44:23 by aelbouaa          #+#    #+#             */
-/*   Updated: 2024/01/15 03:30:51 by aelbouaa         ###   ########.fr       */
+/*   Created: 2024/01/16 17:41:44 by aelbouaa          #+#    #+#             */
+/*   Updated: 2024/01/17 22:52:54 by aelbouaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"Fixed.hpp"
+#include "ClapTrap.hpp"
 
-int main( void ) 
+int main()
 {
-    Fixed a;
-    Fixed b( a );
-    Fixed c;
+    ClapTrap majid;
+    // majid("majid");
+    // majid.beRepaired(15);
+    // majid.takeDamage(19);
+    // majid.takeDamage(1);
+    // majid.takeDamage(1);
+    // majid.attack("timsah");
+    // majid.attack("timsah");
 
-    c = b;
-    std::cout << a.getRawBits() << std::endl;
-    std::cout << b.getRawBits() << std::endl;
-    std::cout << c.getRawBits() << std::endl;
-    return 0;
 }

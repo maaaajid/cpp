@@ -1,38 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Fixed.hpp                                          :+:      :+:    :+:   */
+/*   ClapTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aelbouaa <aelbouaa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/06 01:57:54 by aelbouaa          #+#    #+#             */
-/*   Updated: 2024/01/15 12:42:51 by aelbouaa         ###   ########.fr       */
+/*   Created: 2024/01/16 17:46:31 by aelbouaa          #+#    #+#             */
+/*   Updated: 2024/01/16 19:21:03 by aelbouaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # pragma once
 
 #include <iostream>
-#include <cmath>
-#include <bitset>
-class Fixed
+
+class ClapTrap
 {
 private:
-    int Number;
-    static const int fruction = 8;
-
+    std::string     name;
+    unsigned int    HitPoint;
+    unsigned int    EnergyPoint;
+    unsigned int    AttackDamage;
 public:
-    Fixed();
-    Fixed(const int n);
-    Fixed(const float n);
-    Fixed(const Fixed& old);
-    Fixed&    operator=(const Fixed& old);
-    ~Fixed();
+    ClapTrap();
+    ClapTrap( std::string nm);
+    ClapTrap( const ClapTrap& obj);
+    ClapTrap&   operator=( const ClapTrap& obj);
+    ~ClapTrap();
     
-    int     toInt( void ) const;
-    float   toFloat( void ) const;
-    int     getRawBits( void );
-    void    setRawBits( int const raw );
+    void    attack(const std::string& target);
+    void    takeDamage( unsigned int amount);
+    void    beRepaired( unsigned int amount);
 };
-
-std::ostream&     operator<<(std::ostream& cout, const Fixed& fi);

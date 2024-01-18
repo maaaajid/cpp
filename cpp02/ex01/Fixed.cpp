@@ -6,7 +6,7 @@
 /*   By: aelbouaa <aelbouaa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/06 01:57:34 by aelbouaa          #+#    #+#             */
-/*   Updated: 2024/01/07 21:29:41 by aelbouaa         ###   ########.fr       */
+/*   Updated: 2024/01/15 12:42:56 by aelbouaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ Fixed::Fixed(const float n)
 {
     std::cout << "Float constructor called" << std::endl;
     Number = roundf(n * (1 << fruction));  
-    
 }
 
 Fixed::Fixed(const Fixed& old)

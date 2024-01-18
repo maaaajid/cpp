@@ -6,7 +6,7 @@
 /*   By: aelbouaa <aelbouaa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 21:46:41 by aelbouaa          #+#    #+#             */
-/*   Updated: 2024/01/08 17:20:27 by aelbouaa         ###   ########.fr       */
+/*   Updated: 2024/01/15 13:46:54 by aelbouaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,9 +38,9 @@ public:
     Fixed  operator*(const Fixed& rhs);
     Fixed  operator/(const Fixed& rhs);
     Fixed&  operator++();
-    Fixed  operator++(int n);
+    Fixed  operator++(int);
     Fixed&  operator--();
-    Fixed  operator--(int n);
+    Fixed  operator--(int);
     ~Fixed();
     
     int     toInt( void ) const;

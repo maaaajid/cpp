@@ -1,26 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aelbouaa <aelbouaa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/05 00:44:23 by aelbouaa          #+#    #+#             */
-/*   Updated: 2024/01/15 03:30:51 by aelbouaa         ###   ########.fr       */
+/*   Created: 2024/01/17 23:15:36 by aelbouaa          #+#    #+#             */
+/*   Updated: 2024/01/18 04:40:05 by aelbouaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"Fixed.hpp"
+#pragma once
 
-int main( void ) 
+#include "ClapTrap.hpp"
+
+class ScavTrap : public ClapTrap
 {
-    Fixed a;
-    Fixed b( a );
-    Fixed c;
-
-    c = b;
-    std::cout << a.getRawBits() << std::endl;
-    std::cout << b.getRawBits() << std::endl;
-    std::cout << c.getRawBits() << std::endl;
-    return 0;
-}
+public:
+    ScavTrap();
+    ScavTrap( std::string nm );
+    ScavTrap( const ScavTrap& obj );
+    ScavTrap&   operator=( const ScavTrap& obj );
+    ~ScavTrap();
+    
+    void    attack( const std::string& target);
+    void    guardGate();
+};

@@ -1,26 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   DiamondTrap.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aelbouaa <aelbouaa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/05 00:44:23 by aelbouaa          #+#    #+#             */
-/*   Updated: 2024/01/15 03:30:51 by aelbouaa         ###   ########.fr       */
+/*   Created: 2024/01/18 05:15:11 by aelbouaa          #+#    #+#             */
+/*   Updated: 2024/01/18 08:35:19 by aelbouaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"Fixed.hpp"
+# pragma once
 
-int main( void ) 
+#include "FragTrap.hpp"
+#include "ScavTrap.hpp"
+
+class DiamondTrap:public FragTrap, public ScavTrap
 {
-    Fixed a;
-    Fixed b( a );
-    Fixed c;
+private:
+    std::string name;
 
-    c = b;
-    std::cout << a.getRawBits() << std::endl;
-    std::cout << b.getRawBits() << std::endl;
-    std::cout << c.getRawBits() << std::endl;
-    return 0;
-}
+public:
+    DiamondTrap();
+    DiamondTrap( const std::string& nm);
+    DiamondTrap( const DiamondTrap& obj );
+    DiamondTrap&    operator=( const DiamondTrap& obj );
+    ~DiamondTrap();
+    void annonce(void);
+    
+};

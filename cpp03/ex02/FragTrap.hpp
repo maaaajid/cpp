@@ -1,26 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   FragTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aelbouaa <aelbouaa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/05 00:44:23 by aelbouaa          #+#    #+#             */
-/*   Updated: 2024/01/15 03:30:51 by aelbouaa         ###   ########.fr       */
+/*   Created: 2024/01/18 03:40:07 by aelbouaa          #+#    #+#             */
+/*   Updated: 2024/01/18 04:39:51 by aelbouaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"Fixed.hpp"
+# pragma once
 
-int main( void ) 
+#include "ClapTrap.hpp"
+
+class FragTrap : public ClapTrap
 {
-    Fixed a;
-    Fixed b( a );
-    Fixed c;
+public:
+    FragTrap();
+    FragTrap( std::string nm );
+    FragTrap( const FragTrap& obj );
+    FragTrap&   operator=( const FragTrap& obj );
+    ~FragTrap();
 
-    c = b;
-    std::cout << a.getRawBits() << std::endl;
-    std::cout << b.getRawBits() << std::endl;
-    std::cout << c.getRawBits() << std::endl;
-    return 0;
-}
+    void    attack( const std::string& target );
+    void    highFivesGuys( void );
+};
