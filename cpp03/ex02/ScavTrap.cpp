@@ -6,24 +6,33 @@
 /*   By: aelbouaa <aelbouaa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 01:04:57 by aelbouaa          #+#    #+#             */
-/*   Updated: 2024/01/18 04:40:20 by aelbouaa         ###   ########.fr       */
+/*   Updated: 2024/01/18 11:36:39 by aelbouaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScavTrap.hpp"
 
-ScavTrap::ScavTrap(): ClapTrap()
+ScavTrap::ScavTrap()
 {
+    name = "default";
+    HitPoint = 100;
+    EnergyPoint = 50;
+    AttackDamage = 20;
     std::cout << "ScavTrap constractor called" << std::endl;
 }
 
-ScavTrap::ScavTrap( std::string nm ): ClapTrap(nm)
+ScavTrap::ScavTrap( std::string nm )
 {
+    name = nm;
+    HitPoint = 100;
+    EnergyPoint = 50;
+    AttackDamage = 20;
     std::cout << "ScavTrap parametrized constractor called" << std::endl;
 }
-ScavTrap::ScavTrap( const ScavTrap& obj ): ClapTrap(obj)
+ScavTrap::ScavTrap( const ScavTrap& obj ): ClapTrap()
 {
     std::cout << "ScavTrap copy constractor called" << std::endl;
+    *this = obj;
 }
 
 ScavTrap&   ScavTrap::operator=( const ScavTrap& obj )
@@ -43,8 +52,21 @@ ScavTrap::~ScavTrap()
 
 void    ScavTrap::attack( const std::string& target)
 {
-    std::cout << "ScavTrap " << name << " attacks " << target << " , causing him "
-            << AttackDamage << " of his hit points" << std::endl;
+    if (EnergyPoint && HitPoint)
+    {
+        std::cout << "ScavTrap " << name << " attacks " << target << ", causing " <<
+                AttackDamage << " points of damage" << std::endl;
+        EnergyPoint--;
+    }
+    else if (!EnergyPoint)
+    {
+        std::cout << "ScavTrap " << name << " has no energy points to attack" << std::endl;
+    }
+    else if (!HitPoint)
+    {
+        std::cout << "ScavTrap " << name << " can't attack "
+            << target << " , he's already dead" << std::endl;
+    }
 }
 
 void    ScavTrap::guardGate()

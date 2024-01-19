@@ -6,23 +6,34 @@
 /*   By: aelbouaa <aelbouaa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 05:15:25 by aelbouaa          #+#    #+#             */
-/*   Updated: 2024/01/18 08:41:23 by aelbouaa         ###   ########.fr       */
+/*   Updated: 2024/01/18 11:55:03 by aelbouaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "DiamondTrap.hpp"
+#include "ClapTrap.hpp"
+#include "FragTrap.hpp"
+#include "ScavTrap.hpp"
 
-DiamondTrap::DiamondTrap():ClapTrap(), FragTrap(), ScavTrap()
+DiamondTrap::DiamondTrap()
 {
+    name = "default";
+    HitPoint = FragTrap::HitPoint;
+    EnergyPoint = ScavTrap::EnergyPoint;
+    AttackDamage = FragTrap::EnergyPoint;
     std::cout << "DiamondTrap constractor called" << std::endl;
 }
-DiamondTrap::DiamondTrap( const std::string& nm): ClapTrap(nm + "_clap_name")
+DiamondTrap::DiamondTrap( const std::string& nm)
 {
     std::cout << "DiamondTrap parametrized constractor called" << std::endl;
     name = nm;
+    ClapTrap::name = nm + "_clap_name";
+    HitPoint = FragTrap::HitPoint;
+    EnergyPoint = ScavTrap::EnergyPoint;
+    AttackDamage = FragTrap::AttackDamage;
 }
 
-DiamondTrap::DiamondTrap( const DiamondTrap& obj)
+DiamondTrap::DiamondTrap( const DiamondTrap& obj): ClapTrap(), FragTrap(), ScavTrap()
 {
     std::cout << "DiamondTrap copy constractor called" << std::endl;
     *this = obj;
@@ -44,9 +55,14 @@ DiamondTrap::~DiamondTrap()
     std::cout << "DiamondTrap destractor called" << std::endl;
 }
 
-
-void    DiamondTrap::annonce(void)
+void    DiamondTrap::attack( const std::string& nm)
 {
-    std::cout << name << HitPoint << EnergyPoint << AttackDamage << std::endl;
-    ClapTrap::attack("haha");
+    ScavTrap::attack(nm);
+}
+
+
+void    DiamondTrap::whoAmI(void)
+{
+    std::cout << "hello this is DiamondTrap " << name << " and my inner ClapTrap " 
+            << ClapTrap::name << std::endl;
 }

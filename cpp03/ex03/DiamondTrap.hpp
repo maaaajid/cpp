@@ -6,7 +6,7 @@
 /*   By: aelbouaa <aelbouaa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 05:15:11 by aelbouaa          #+#    #+#             */
-/*   Updated: 2024/01/18 08:35:19 by aelbouaa         ###   ########.fr       */
+/*   Updated: 2024/01/18 09:37:45 by aelbouaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@ public:
     DiamondTrap( const DiamondTrap& obj );
     DiamondTrap&    operator=( const DiamondTrap& obj );
     ~DiamondTrap();
-    void annonce(void);
+    
+    void    attack( const std::string& nm );
+    void    whoAmI( void );
     
 };

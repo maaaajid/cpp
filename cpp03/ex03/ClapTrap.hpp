@@ -19,9 +19,9 @@ class ClapTrap
 {
 protected:
     std::string     name;
-    unsigned int    HitPoint;
-    unsigned int    EnergyPoint;
-    unsigned int    AttackDamage;
+    unsigned long long    HitPoint;
+    unsigned long long    EnergyPoint;
+    unsigned long long    AttackDamage;
 public:
     ClapTrap();
     ClapTrap( std::string nm );

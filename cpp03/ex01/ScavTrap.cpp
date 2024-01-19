@@ -6,24 +6,33 @@
 /*   By: aelbouaa <aelbouaa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 01:04:57 by aelbouaa          #+#    #+#             */
-/*   Updated: 2024/01/18 04:53:05 by aelbouaa         ###   ########.fr       */
+/*   Updated: 2024/01/18 11:18:48 by aelbouaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScavTrap.hpp"
 
-ScavTrap::ScavTrap(): ClapTrap()
+ScavTrap::ScavTrap()
 {
+    name = "default";
+    HitPoint = 100;
+    EnergyPoint = 50;
+    AttackDamage = 20;
     std::cout << "ScavTrap constractor called" << std::endl;
 }
 
-ScavTrap::ScavTrap( std::string nm ): ClapTrap(nm)
+ScavTrap::ScavTrap( std::string nm )
 {
+    name = nm;
+    HitPoint = 100;
+    EnergyPoint = 50;
+    AttackDamage = 20;
     std::cout << "ScavTrap parametrized constractor called" << std::endl;
 }
-ScavTrap::ScavTrap( const ScavTrap& obj ): ClapTrap(obj)
+ScavTrap::ScavTrap( const ScavTrap& obj ): ClapTrap()
 {
     std::cout << "ScavTrap copy constractor called" << std::endl;
+    *this = obj;
 }
 
 ScavTrap&   ScavTrap::operator=( const ScavTrap& obj )

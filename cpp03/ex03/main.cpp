@@ -6,7 +6,7 @@
 /*   By: aelbouaa <aelbouaa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 05:13:56 by aelbouaa          #+#    #+#             */
-/*   Updated: 2024/01/18 08:43:52 by aelbouaa         ###   ########.fr       */
+/*   Updated: 2024/01/18 11:54:44 by aelbouaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,16 +15,8 @@
 
 int main()
 {
-    DiamondTrap majid("majid");
-    std::cout << "\n\n\n\n\n" << std::endl;
-    DiamondTrap omar = majid;
-        std::cout << "\n\n\n\n\n" << std::endl;
-
-    omar.annonce();
-        std::cout << "\n\n\n\n\n" << std::endl;
-
-    majid = omar;
-        std::cout << "\n\n\n\n\n" << std::endl;
-    
-    majid.annonce();
+    DiamondTrap a("sofb");
+    a.attack("ruygu");
+    a.beRepaired(1);
+    a.beRepaired(1);
 }

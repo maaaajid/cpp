@@ -6,25 +6,34 @@
 /*   By: aelbouaa <aelbouaa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 03:40:26 by aelbouaa          #+#    #+#             */
-/*   Updated: 2024/01/18 04:55:54 by aelbouaa         ###   ########.fr       */
+/*   Updated: 2024/01/18 11:32:15 by aelbouaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "FragTrap.hpp"
 
-FragTrap::FragTrap(): ClapTrap()
+FragTrap::FragTrap()
 {
     std::cout << "FragTrap constractor called" << std::endl;
+    name = "default";
+    HitPoint = 100;
+    EnergyPoint = 100;
+    AttackDamage = 30;
 }
 
-FragTrap::FragTrap( std::string nm ): ClapTrap(nm)
+FragTrap::FragTrap( std::string nm )
 {
     std::cout << "FragTrap parametrized constractor called" << std::endl;
+    name = nm;
+    HitPoint = 100;
+    EnergyPoint = 100;
+    AttackDamage = 30;
 }
 
-FragTrap::FragTrap( const FragTrap& obj ): ClapTrap(obj)
+FragTrap::FragTrap( const FragTrap& obj ): ClapTrap()
 {
     std::cout << "FragTrap copy constractor called" << std::endl;
+    *this = obj;
 }
 
 FragTrap&   FragTrap::operator=( const FragTrap& obj )
