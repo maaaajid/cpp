@@ -45,14 +45,16 @@ using namespace std;
 // };
 class test
 {
+    int p;
     public:
-        virtual void func()
+        void func()
         {
             std::cout << "HI go" << std::endl;
         }
 };
 class test1 : public test
 {
+    int a;
     public:
          void func()
         {
@@ -61,16 +63,9 @@ class test1 : public test
 };
 int main()
 {
-    // d objD;
-    // std::cout << objD.getSes();
-    // std::cout << sizeof(a) << '\n'
-    // << sizeof(b) << '\n'
-    // << sizeof(c) << '\n'
-    // << sizeof(a) << '\n';
-    test *o = new test1;
-    o->func();
-    int c;
-    test a;
-    a.func();
-    std::cout << sizeof(test) << std::endl;
+    test1 *o = new test();
+    // o->func();
+    // test *a;
+    // a->func();
+    std::cout << sizeof(*o) << std::endl;
 }
