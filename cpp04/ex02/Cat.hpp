@@ -1,30 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                         :+:      :+:    :+:   */
+/*   Cat.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aelbouaa <aelbouaa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/20 06:21:41 by aelbouaa          #+#    #+#             */
-/*   Updated: 2024/01/21 01:35:29 by aelbouaa         ###   ########.fr       */
+/*   Created: 2024/01/20 07:45:34 by aelbouaa          #+#    #+#             */
+/*   Updated: 2024/01/21 09:10:11 by aelbouaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
+#include "Brain.hpp"
+#include "Animal.hpp"
+#include <string>
 
-#include "iostream"
-
-class Animal
+class Cat: public Animal
 {
-protected:
-    std::string type;
+private:
+    Brain *brain;
 
 public:
-    Animal();
-    Animal(const Animal& obj);
-    Animal&     operator=( const Animal& obj);
-    ~Animal();
+    Cat();
+    Cat( const Cat& obj );
+    Cat&    operator=( const Cat& obj );
+    ~Cat();
 
-    virtual void    makeSound() const;
-    std::string    getType() const;
+    void    makeSound() const;
+    std::string     getType() const;
+    void    setbrain( std::string d, int idx);
+    std::string&    getbrain( int idx );
 };
