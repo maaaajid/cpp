@@ -13,7 +13,7 @@ class Bureaucrat
     unsigned int        Grade;
 public:
     Bureaucrat();
-    Bureaucrat( std::string const name, const unsigned int grade );
+    Bureaucrat( std::string name, unsigned int grade );
     Bureaucrat( const Bureaucrat& obj );
     Bureaucrat  operator=( const Bureaucrat& obj );
     ~Bureaucrat();
@@ -29,7 +29,7 @@ public:
             const char *what() const throw();
     };
 
-    void            signForm(AForm &obj) const;
+    void            signForm(AForm &obj);
     std::string     getName( void ) const;
     unsigned int    getGrade( void )const;
     void            increment( void );

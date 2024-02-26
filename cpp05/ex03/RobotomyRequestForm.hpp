@@ -7,9 +7,9 @@ class RobotomyRequestForm : public AForm
 {
 public:
     RobotomyRequestForm();
-    RobotomyRequestForm(std::string const name);
-    RobotomyRequestForm(RobotomyRequestForm const &obj);
-    RobotomyRequestForm&    operator=(RobotomyRequestForm const &obj);
+    RobotomyRequestForm(std::string name);
+    RobotomyRequestForm(RobotomyRequestForm &obj);
+    RobotomyRequestForm&    operator=(RobotomyRequestForm &obj);
     ~RobotomyRequestForm();
 
     class   GradeTooHighException: public AForm::GradeTooHighException

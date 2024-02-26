@@ -6,7 +6,7 @@
 /*   By: aelbouaa <aelbouaa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/12 08:46:18 by aelbouaa          #+#    #+#             */
-/*   Updated: 2024/02/18 18:11:08 by aelbouaa         ###   ########.fr       */
+/*   Updated: 2024/02/25 22:16:49 by aelbouaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,11 @@ int main()
     try
     {
         first.increment();
+        std::cout << first << std::endl;
+        first.increment();
+        std::cout << first << std::endl;
+        first.increment();
+        std::cout << first << std::endl;
     }
     catch (std::exception &err)
     {

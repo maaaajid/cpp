@@ -6,22 +6,19 @@
 /*   By: aelbouaa <aelbouaa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/12 08:48:10 by aelbouaa          #+#    #+#             */
-/*   Updated: 2024/02/18 19:17:59 by aelbouaa         ###   ########.fr       */
+/*   Updated: 2024/02/25 14:10:44 by aelbouaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 #include <ostream>
 
-Bureaucrat::Bureaucrat()
+Bureaucrat::Bureaucrat():Name("default"), Grade(97)
 {
-    std::cout << "default constructor called" << std::endl;
-    this->Grade = 10;
 }
 
 Bureaucrat::Bureaucrat( std::string name, unsigned int grade): Name(name)
 {
-    std::cout << "parametrized constructor called" << std::endl;
     if (grade < 1)
         throw Bureaucrat::GradeTooHighException();
     else if (grade > 150)
@@ -32,20 +29,17 @@ Bureaucrat::Bureaucrat( std::string name, unsigned int grade): Name(name)
 
 Bureaucrat::Bureaucrat( const Bureaucrat& obj):Name(obj.Name)
 {
-    std::cout << "copy constructor called" <<std::endl;
     this->Grade = obj.Grade;
 }
 
 Bureaucrat  Bureaucrat::operator=( const Bureaucrat& obj)
 {
-    std::cout << "copy assignement operator called" << std::endl;
     this->Grade = obj.Grade;
     return (*this);
-}Form(std::string name, const unsigned int gts, const unsigned int gtx
+}
 
 Bureaucrat::~Bureaucrat()
 {
-    std::cout << "distructor called" << std::endl;
 }
 
 std::string Bureaucrat::getName( void ) const

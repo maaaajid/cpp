@@ -8,10 +8,10 @@ class ShrubberyCreationForm : public AForm
 {
 public:
     ShrubberyCreationForm();
-    ShrubberyCreationForm(std::string const name);
-    ShrubberyCreationForm(ShrubberyCreationForm const &obj);
+    ShrubberyCreationForm(std::string name);
+    ShrubberyCreationForm(ShrubberyCreationForm &obj);
     ~ShrubberyCreationForm();
-    ShrubberyCreationForm&  operator=(ShrubberyCreationForm  const &obj);
+    ShrubberyCreationForm&  operator=(ShrubberyCreationForm &obj);
 
     class GradeTooLowException : public AForm::GradeTooLowException
     {

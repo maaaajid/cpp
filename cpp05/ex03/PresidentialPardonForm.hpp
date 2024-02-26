@@ -7,9 +7,9 @@ class PresidentialPardonForm : public AForm
 {
 public:
     PresidentialPardonForm();
-    PresidentialPardonForm(std::string const name);
-    PresidentialPardonForm(PresidentialPardonForm const &obj);
-    PresidentialPardonForm& operator=(PresidentialPardonForm const &obj);
+    PresidentialPardonForm(std::string name);
+    PresidentialPardonForm(PresidentialPardonForm &obj);
+    PresidentialPardonForm& operator=(PresidentialPardonForm &obj);
     ~PresidentialPardonForm();
 
     class PardonTooHighGrade: public AForm::GradeTooHighException

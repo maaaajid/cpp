@@ -13,8 +13,8 @@ private:
 public:
     Form();
     Form(std::string name, const unsigned int gts, const unsigned int stx);
-    Form(Form &obj);
-    Form&   operator=(Form &obj);
+    Form(Form const &obj);
+    Form&   operator=(Form const &obj);
     ~Form();
 
     class GradeTooLowException : public std::exception
@@ -29,8 +29,9 @@ public:
     };
     unsigned int    getGrade() const;
     std::string     getName() const;
+    void            setsign(bool b);
     bool            getSigning() const;
-    void            beSigned(Bureaucrat &B);
+    void            beSigned(Bureaucrat const &B);
 };
 
 std::ostream&   operator<<(std::ostream& out, const Form &obj);

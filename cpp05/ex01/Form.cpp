@@ -4,14 +4,12 @@
 
 Form::Form(): Name("default"), GradeToSign(150), GradeToExecute(150)
 {
-    std::cout << "default constructor called" << std::endl;
     this->signing = 0;
 }
 
 Form::Form(std::string name, const unsigned int gts, const unsigned int stx)
     :Name(name), GradeToSign(gts), GradeToExecute(stx)
 {
-    std::cout << "parametrized constractur called" << std::endl;
     this->signing = 0;
     if (GradeToSign < 1)
         throw Bureaucrat::GradeTooHighException();
@@ -19,22 +17,19 @@ Form::Form(std::string name, const unsigned int gts, const unsigned int stx)
         throw Bureaucrat::GradeTooLowException();
 }
 
-Form::Form(Form &obj):Name(obj.Name), GradeToSign(obj.GradeToSign), GradeToExecute(obj.GradeToExecute)
+Form::Form(Form const &obj):Name(obj.Name), GradeToSign(obj.GradeToSign), GradeToExecute(obj.GradeToExecute)
 {
-    std::cout << "copy constractor called" << std::endl;
     *this = obj; 
 }
 
-Form&   Form::operator=( Form &obj)
+Form&   Form::operator=( Form const &obj)
 {
-    std::cout << "copy assignement operator called" << std::endl;
     this->signing = obj.signing;
     return(*this);
 }
 
 Form::~Form()
 {
-    std::cout << "distructor called" << std::endl;
 }
 
 const char *Form::GradeTooHighException::what() const throw()
@@ -47,7 +42,7 @@ const char *Form::GradeTooLowException::what() const throw()
     return ("Form::GradeTooLowException");
 }
 
-void Form::beSigned(Bureaucrat &B)
+void Form::beSigned(Bureaucrat const &B)
 {
     if (this->GradeToSign >= B.getGrade())
         this->signing = 1;
@@ -68,6 +63,11 @@ unsigned int    Form::getGrade( void ) const
 bool    Form::getSigning( void ) const
 {
     return (this->signing);
+}
+
+void    Form::setsign(bool b)
+{
+    this->signing = b;
 }
 
 std::ostream&   operator<<(std::ostream& out, const Form &obj)

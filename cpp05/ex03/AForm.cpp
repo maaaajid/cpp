@@ -6,7 +6,7 @@ AForm::AForm(): Name("default"), signing(0), GradeToSign(150), GradeToExecute(15
 {
 }
 
-AForm::AForm(std::string const name, const unsigned int gts, const unsigned int stx)
+AForm::AForm(std::string name, const unsigned int gts, const unsigned int stx)
     :Name(name), signing(0), GradeToSign(gts), GradeToExecute(stx)
 {
     if (GradeToSign < 1)
@@ -15,12 +15,12 @@ AForm::AForm(std::string const name, const unsigned int gts, const unsigned int 
         throw Bureaucrat::GradeTooLowException();
 }
 
-AForm::AForm(AForm const &obj):Name(obj.Name), GradeToSign(obj.GradeToSign), GradeToExecute(obj.GradeToExecute)
+AForm::AForm(AForm &obj):Name(obj.Name), GradeToSign(obj.GradeToSign), GradeToExecute(obj.GradeToExecute)
 {
     *this = obj; 
 }
 
-AForm&   AForm::operator=( AForm const &obj)
+AForm&   AForm::operator=( AForm &obj)
 {
     this->signing = obj.signing;
     return(*this);

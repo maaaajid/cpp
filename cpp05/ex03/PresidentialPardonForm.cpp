@@ -6,15 +6,15 @@ PresidentialPardonForm::PresidentialPardonForm():AForm("default", 25, 5)
 {
 }
 
-PresidentialPardonForm::PresidentialPardonForm(std::string const name):AForm(name, 25, 5)
+PresidentialPardonForm::PresidentialPardonForm(std::string name):AForm(name, 25, 5)
 {
 }
 
-PresidentialPardonForm::PresidentialPardonForm(PresidentialPardonForm const &obj):AForm(obj)
+PresidentialPardonForm::PresidentialPardonForm(PresidentialPardonForm &obj):AForm(obj)
 {
 }
 
-PresidentialPardonForm& PresidentialPardonForm::operator=(PresidentialPardonForm const &obj)
+PresidentialPardonForm& PresidentialPardonForm::operator=(PresidentialPardonForm &obj)
 {
     this->setsign(obj.getSigning());
     return (*this);

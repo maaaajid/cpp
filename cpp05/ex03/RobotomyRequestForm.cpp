@@ -3,19 +3,19 @@
 #include <string>
 
 
-RobotomyRequestForm::RobotomyRequestForm():AForm("shrubbery", 72, 45)
+RobotomyRequestForm::RobotomyRequestForm():AForm("default", 72, 45)
 {
 }
 
-RobotomyRequestForm::RobotomyRequestForm(std::string const name):AForm(name, 72, 45)
+RobotomyRequestForm::RobotomyRequestForm(std::string name):AForm(name, 72, 45)
 {
 }
 
-RobotomyRequestForm::RobotomyRequestForm(RobotomyRequestForm const &obj):AForm(obj)
+RobotomyRequestForm::RobotomyRequestForm(RobotomyRequestForm &obj):AForm(obj)
 {
 }
 
-RobotomyRequestForm&  RobotomyRequestForm::operator=(RobotomyRequestForm const &obj)
+RobotomyRequestForm&  RobotomyRequestForm::operator=(RobotomyRequestForm &obj)
 {
     this->setsign(obj.getSigning());
     return (*this);

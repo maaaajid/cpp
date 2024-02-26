@@ -12,9 +12,9 @@ private:
     const unsigned int GradeToExecute;
 public:
     AForm();
-    AForm(std::string const name, const unsigned int gts, const unsigned int gtx);
-    AForm(AForm const &obj);
-    AForm&   operator=(AForm const &obj);
+    AForm(std::string name, unsigned int gts, unsigned int gtx);
+    AForm(AForm &obj);
+    AForm&   operator=(AForm &obj);
     virtual ~AForm();
 
     class GradeTooLowException : public std::exception

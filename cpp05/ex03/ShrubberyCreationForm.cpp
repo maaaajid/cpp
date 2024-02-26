@@ -4,19 +4,19 @@
 #include <string>
 
 
-ShrubberyCreationForm::ShrubberyCreationForm():AForm("shrubbery", 145, 137)
+ShrubberyCreationForm::ShrubberyCreationForm():AForm("default", 145, 137)
 {
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm(std::string const name):AForm(name, 145, 137)
+ShrubberyCreationForm::ShrubberyCreationForm(std::string name):AForm(name, 145, 137)
 {
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm(ShrubberyCreationForm const &obj):AForm(obj)
+ShrubberyCreationForm::ShrubberyCreationForm(ShrubberyCreationForm &obj):AForm(obj)
 {
 }
 
-ShrubberyCreationForm&  ShrubberyCreationForm::operator=(ShrubberyCreationForm const &obj)
+ShrubberyCreationForm&  ShrubberyCreationForm::operator=(ShrubberyCreationForm &obj)
 {
     this->setsign(obj.getSigning());
     return (*this);
