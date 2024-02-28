@@ -6,7 +6,7 @@
 /*   By: aelbouaa <aelbouaa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/12 08:46:18 by aelbouaa          #+#    #+#             */
-/*   Updated: 2024/02/25 22:16:49 by aelbouaa         ###   ########.fr       */
+/*   Updated: 2024/02/28 01:59:34 by aelbouaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 int main()
 {
-    Bureaucrat first("majid", 3);
-    std::cout << first << std::endl;
     try
     {
+        Bureaucrat first("majid", 1);
+        std::cout << first << std::endl;
         first.increment();
         std::cout << first << std::endl;
         first.increment();
@@ -29,5 +29,4 @@ int main()
     {
         std::cerr << err.what() << std::endl;
     }
-    std::cout << first << std::endl;
 }

@@ -5,10 +5,10 @@
 
 int main()
 {
-    Bureaucrat a("majid", 15);
-    Form b("contract", 10, 150);
     try 
     {
+        Bureaucrat a("majid", 15);
+        Form b("contract", 10, 150);
         a.increment();
         std::cout << b << std::endl;
         a.signForm(b);
