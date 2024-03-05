@@ -7,11 +7,11 @@
 
 class Serializer
 {
-public:
     Serializer();
     Serializer(Serializer &obj);
     Serializer& operator=(Serializer &obj);
     ~Serializer();
+public:
     static uintptr_t serialize(Data* ptr);
     static Data* deserialize(uintptr_t raw);
 };
