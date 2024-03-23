@@ -52,7 +52,7 @@ long long     Span::longestSpan()
         {
             std::vector<int>::iterator it = vec.begin();
             std::vector<int>::iterator it2 = vec.end() - 1;
-            std::sort(vec.begin(), vec.end());
+            sort(vec.begin(), vec.end());
             if (*it >= *it2)
                 return (*it - *it2);
             else

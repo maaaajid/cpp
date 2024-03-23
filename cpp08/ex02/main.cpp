@@ -1,62 +1,34 @@
 #include "MutantStack.hpp"
 #include <list>
 
+
 int main()
 {
-    stack<int, vector<int> > a;
-    MutantStack<int, vector<int>> b;
-
-    // std::list<int> mstack;
-    // mstack.push_back(5);
-    // mstack.push_back(17);
-    // std::cout << mstack.front() << std::endl;
-    // mstack.pop_front();
-    // std::cout << mstack.size() << std::endl;
-    // mstack.push_back(3);
-    // mstack.push_back(5);
-    // mstack.push_back(737);
-
-    // mstack.push_back(0);
-    // std::list<int>::iterator  it = mstack.begin();
-    // std::list<int>::iterator  ite = mstack.end();
-    // ++it;
-    // --it;
-    // while (it != ite)
-    // {
-    //     std::cout << *it << std::endl;
-    //     ++it;
-    // }
-    // std::list<int> s(mstack);
-    // return 0;
+    MutantStack<int> mstack;
+    mstack.push(5);
+    mstack.push(17);
+    std::cout << mstack.top() << std::endl;
+    mstack.pop();
+    std::cout << mstack.size() << std::endl;
+    mstack.push(3);
+    mstack.push(5);
+    mstack.push(737);
+    mstack.push(77);
+    mstack.push(37);
+    mstack.push(73);
+    mstack.push(7397);
+    mstack.push(77336);
+    mstack.push(654);
+    MutantStack<int> b(mstack);
+    MutantStack<int>::iterator it = b.begin();
+    MutantStack<int>::iterator ite = b.end();
+    ++it;
+    --it;
+    while (it != ite)
+    {
+    std::cout << *it << std::endl;
+    ++it;
+    }
+    std::stack<int> s(mstack);
+    return 0;
 }
-
-
-//     // return 0;
-// }
-
-
-// int main()
-// {
-//     MutantStack<int> mstack;
-//     mstack.push(5);
-//     mstack.push(17);
-//     std::cout << mstack.top() << std::endl;
-//     mstack.pop();
-//     std::cout << mstack.size() << std::endl;
-//     mstack.push(3);
-//     mstack.push(5);
-//     mstack.push(737);
-//     //[...]
-//     mstack.push(0);
-//     MutantStack<int>::iterator it = mstack.begin();
-//     MutantStack<int>::iterator ite = mstack.end();
-//     ++it;
-//     --it;
-//     while (it != ite)
-//     {
-//     std::cout << *it << std::endl;
-//     ++it;
-//     }
-//     std::stack<int> s(mstack);
-//     return 0;
-// }

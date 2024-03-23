@@ -1,17 +1,24 @@
 #pragma once
 
 #include <iostream>
-#include <iterator>
 #include <stack>
 #include <algorithm>
 #include <deque>
 #include <stack>
-#include <vector>
 
-template <class T, class Container = std::deque<T>>
+
+template <class T, class Container = std::deque<T> >
 class MutantStack: public std::stack<T, Container>
 {
 public:
+    MutantStack(){}
+    MutantStack(MutantStack &obj):std::stack<T, Container>(obj){}
+    MutantStack&    operator=(MutantStack &obj)
+    {
+        std::stack<T, Container>::operator=(obj);
+        return(*this);
+    }
+    ~MutantStack(){};
     typedef typename Container::iterator iterator;
     iterator begin(void)
     {
