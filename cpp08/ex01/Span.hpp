@@ -5,6 +5,7 @@
 #include <stdexcept>
 #include <exception>
 #include <algorithm>
+#include <cstdlib>
 
 
 class Span
@@ -22,5 +23,5 @@ public:
     long long   longestSpan();
     long long   shortestSpan();
     void        printElement();
-    void        addInOnce(std::vector<int>::iterator begin, std::vector<int>::iterator end);
+    void        addInOnce();
 };

@@ -6,13 +6,7 @@ BitcoinExchange::BitcoinExchange(char *file):inputFile(file){}
 
 BitcoinExchange::BitcoinExchange(BitcoinExchange &obj)
 {
-	this->inputFile = obj.inputFile;
-	this->Map = obj.Map;
-	this->year = obj.year;
-	this->month = obj.month;
-	this->day = obj.day;
-	this->Date = obj.Date;
-	this->value = obj.value;
+	*this = obj;
 }
 
 BitcoinExchange& BitcoinExchange::operator=(BitcoinExchange &obj)
@@ -32,11 +26,6 @@ BitcoinExchange& BitcoinExchange::operator=(BitcoinExchange &obj)
 
 BitcoinExchange::~BitcoinExchange(){}
 
-const char	*BitcoinExchange::badFormat::what() const throw()
-{
-	return("error: Bad Format of input file");
-}
-
 void	BitcoinExchange::readDb()
 {
 	std::string line;
@@ -47,13 +36,19 @@ void	BitcoinExchange::readDb()
 		exit (1); 
 	}
 	file >> line ;
+	if (line != "date,exchange_rate")
+	{
+		std::cerr << "Error: Bad Format of input file" << std::endl;
+		exit (1);
+	}
 	while (1)
 	{
 		file >> line;
-		this->Map.insert(std::pair<std::string, std::string>(line.substr(0, line.find(',', 0)), line.substr(line.find(',', 0) + 1, line.npos)));
+		this->Map[line.substr(0, line.find(',', 0))] = line.substr(line.find(',', 0) + 1, line.npos);
 		if (file.eof())
 			break;
 	}
+	this->parseInput();
 }
 
 void	BitcoinExchange::parseInput()
@@ -62,12 +57,15 @@ void	BitcoinExchange::parseInput()
 	if (!input)
 	{
 		std::cerr << "Error: could not open file." << std::endl;
-		exit (1); 
+		exit (1);
 	}
 	std::string line;
 	getline(input, line, '\n');
  	if (line != "date | value")
-		throw BitcoinExchange::badFormat();
+	{
+		std::cerr << "Error: Bad Format of input file" << std::endl;
+		exit (1);
+	}
 	while (!input.eof())
 	{
 		getline(input, line, '\n');
@@ -85,23 +83,46 @@ void	BitcoinExchange::parseInput()
 
 int	BitcoinExchange::chackForDate(std::string date)
 {
+	size_t x = 0;
+	int		c = 0;
 	this->Date = date.substr(0, date.size() - 1);
 	if (date.size() != 11)
 	{
 		std::cout << "Error: bad input => " << date << std::endl;
 		return (0);
 	}
-	this->year = date.substr(0, date.find('-', 0));
-	this->month =  date.substr(year.size() + 1, 2);
-	this->day = date.substr(month.size() + 6, 2);
-	if (date[4] != '-' || date[7] != '-' || date[10] != ' '
-		|| year.size() != 4 || month.size() != 2 || day.size() != 2)
+	while (x < date.size() - 1)
+	{
+		if ((!isdigit(date[x]) && date[x] != '-') || c == 3)
+		{
+			std::cout << "Error: bad input => " << date << std::endl;
+			return (0);
+		}
+		if (date[x] == '-')
+			c++;
+		x++;	
+	}
+	if (date[4] != '-' || date[7] != '-' || date[10] != ' ')
+	{
+		std::cerr << "Error: bad input => " << date << std::endl;
+		return (0);
+	}
+	this->year = date.substr(0, 4);
+	this->month =  date.substr(5, 2);
+	this->day = date.substr(8, 2);
+	if (year.size() != 4 || month.size() != 2 || day.size() != 2)
 	{
 		std::cout << "Error: bad input => " << date << std::endl;
 		return (0);
 	}
 	if (atoi(year.c_str()) < 2009 || atoi(month.c_str()) > 12
-		|| atoi(month.c_str()) < 01 || atoi(day.c_str()) > checkForMaxDay())
+		|| atoi(month.c_str()) < 01 || atoi(day.c_str()) > checkForMaxDay()
+		|| atoi(day.c_str()) < 01)
+	{
+		std::cout << "Error: bad input => " << date << std::endl;
+		return (0);
+	}
+	if (atoi(year.c_str()) == 2009 && atoi(month.c_str()) == 01 && atoi(day.c_str()) == 1)
 	{
 		std::cout << "Error: bad input => " << date << std::endl;
 		return (0);
@@ -132,19 +153,27 @@ int BitcoinExchange::checkForMaxDay() const
 
 int BitcoinExchange::checkForValue(std::string value)
 {
-	int x = 0;
-	if (value[0] != ' ' || !isdigit(value[value.size() - 1]))
+	int a = 0;
+	size_t x = 0;
+	if (value[0] != ' ' || !isdigit(value[value.size() - 1]) || !isdigit(value[1]))
 	{
 		std::cout << "Erorr: bad format =>|" << value << std::endl;
 		return (0);
 	}
-	while (value[++x])
+	while (++x < value.size())
 	{
-		if (!isdigit(value[x]) && value[x] != '.' && value[x] != '-')
+		if (value[x] == '.')
+			a++;
+		if (!isdigit(value[x]) && value[x] != '.')
 		{
 			std::cout << "Error: bad value =>" << value << std::endl;
 			return (0);
 		}
+	}
+	if (a > 1)
+	{
+		std::cout << "Error: bad value =>" << value << std::endl;
+		return (0);
 	}
 	value.erase(0, 1);
 	this->value = atof(value.c_str());
@@ -164,26 +193,10 @@ int BitcoinExchange::checkForValue(std::string value)
 void	BitcoinExchange::exchange()
 {
 	it = Map.lower_bound(Date);
-	if(it->first != Date)
+	if(it == Map.end() || it->first != Date)
 		--it;
 	float price = atof(it->second.c_str());
-	std::cout << Date << " => " << value << " = " << price * value << std::endl;
+	std::cout << Date << " => " << value << " = " << std::fixed 
+		<< std::setprecision(2) << price * value << std::endl;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 

@@ -25,10 +25,6 @@ public:
 	BitcoinExchange(BitcoinExchange &obj);
 	BitcoinExchange&	operator=(BitcoinExchange &obj);
 	~BitcoinExchange();
-	class badFormat: public std::exception
-	{
-		const char *what() const throw();
-	};
 
 	void	readDb();
 	void	parseInput();

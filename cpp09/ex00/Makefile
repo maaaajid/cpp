@@ -1,25 +1,24 @@
 NAME = btc
 
 CXX = c++
+CPPFLAGS = -Wall -Wextra -Werror -std=c++98 
 
-CPPFLAGS = -Wall -Werror -Wextra -std=c++98 -g3 -fsanitize=address
+SRCS = main.cpp BitcoinExchange.cpp
 
-SRC = main.cpp BitcoinExchange.cpp
-
-OBJ = $(SRC:.cpp=.o)
+OBJS = $(SRCS:.cpp=.o)
 
 all : $(NAME)
 
-$(NAME) : $(OBJ)
-	@echo "\033[1;32m Compiled\033[0;m"
-	@$(CXX) $(CPPFLAGS) $(OBJ) -o $(NAME)
+$(NAME) : $(OBJS)
+	$(CXX) $(CPPFLAGS) $(OBJS) -o $(NAME)
+
+%.o: %.cpp
+	$(CXX) $(CPPFLAGS) -c $< -o $@
 
 clean :
-	@rm -rf $(OBJ)
-	@echo "\033[1;31m Cleaning...\033[0;m"
+	rm -f $(OBJS)
 
-fclean : clean 
-	@rm -rf $(NAME)
-	@echo "\033[1;31m Full Cleaning...\033[0;m"
+fclean : clean
+	rm -f $(NAME)
 
 re : fclean all

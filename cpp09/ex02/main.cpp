@@ -4,15 +4,7 @@ int main(int ac, char **av)
 {
 	if (ac > 2)
 	{
-		try
-		{
-			PmergeMe test(av);
-			test.Pairwise();
-		}
-		catch (std::exception &e)
-		{
-			std::cout << e.what() << std::endl;
-		}
+		PmergeMe start(av, ac);
 	}
 	else
 	{

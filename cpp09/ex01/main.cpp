@@ -8,8 +8,6 @@ int	main(int ac, char **av)
 		{
 			RPN test(av[1]);
 			test.parseInput();
-			test.putInStack();
-			test.startcalculating();
 		}
 		catch(const std::exception& e)
 		{

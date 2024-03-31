@@ -3,23 +3,22 @@
 #include <iostream>
 #include <stack>
 #include <algorithm>
-#include <deque>
-#include <stack>
 
 
-template <class T, class Container = std::deque<T> >
-class MutantStack: public std::stack<T, Container>
+template <class T>
+class MutantStack: public std::stack<T>
 {
 public:
     MutantStack(){}
-    MutantStack(MutantStack &obj):std::stack<T, Container>(obj){}
+    MutantStack(MutantStack &obj):std::stack<T>(obj){}
     MutantStack&    operator=(MutantStack &obj)
     {
-        std::stack<T, Container>::operator=(obj);
+        if (this != &obj)
+            std::stack<T>::operator=(obj);
         return(*this);
     }
     ~MutantStack(){};
-    typedef typename Container::iterator iterator;
+    typedef typename std::stack<T>::container_type::iterator iterator;
     iterator begin(void)
     {
         return (this->c.begin());
@@ -28,5 +27,4 @@ public:
     {
         return (this->c.end());
     }
-
 };

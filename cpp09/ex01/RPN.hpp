@@ -14,8 +14,8 @@ private:
 public:
 	RPN();
 	RPN(char *input);
-	RPN(RPN &obj);
-	RPN& operator=(RPN &obj);
+	RPN(const RPN &obj);
+	RPN& operator=(const RPN &obj);
 	~RPN();
 
 	void	parseInput();

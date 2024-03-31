@@ -46,7 +46,7 @@ long long     Span::longestSpan()
 {
     try
     {
-        if (vec.size() == 0 || vec.size() == 1)
+        if (vec.size() <= 1)
             throw std::out_of_range("longestSpan need at least 2 elements");
         else
         {
@@ -61,8 +61,8 @@ long long     Span::longestSpan()
     }
     catch(std::exception &e)
     {
-        std::cerr << e.what() << std::endl;
-        return (0);
+        std::cerr << e.what() << ", number of elements " ;
+        return (vec.size());
     }
 
 }
@@ -73,30 +73,28 @@ long long     Span::shortestSpan()
     {
         if (vec.size() == 0 || vec.size() == 1)
             throw std::out_of_range("shortestSpan need at least 2 elements");
-        long long min = 2147483647;
+        long long tmp = 0;
+        long long dist = INT32_MAX;
         sort(vec.begin(), vec.end());
         std::vector<int>::iterator it = vec.begin();
-        std::vector<int>::iterator it2 = vec.begin();
-        while (it < vec.end())
+        std::vector<int>::iterator it2 = vec.begin() + 1;
+        while (it2 < vec.end())
         {
-            it2 = it + 1;
-            while (it2 < vec.end())
-            {
-                if (*it < *it2 && min > *it2 - *it)
-                    min = *it2 - *it;
-                else if (*it >= *it2 && min > *it - *it2)
-                    min = *it - *it2;
-                it2++;
-            }
+            if (*it2 < 0)
+                tmp = abs(*it + abs(*it2));
+            else
+                tmp = abs(*it - *it2);
+            if (tmp < dist)
+                dist = tmp;
             it++;
-            it2 = it;
+            it2++;
         }
-        return min;
+        return dist;
     }
     catch(std::exception &e)
     {
-        std::cerr << e.what() << std::endl;
-        return (0);
+        std::cerr << e.what() << ", number of elements " ;
+        return (vec.size());
     }
 }
 
@@ -105,15 +103,17 @@ void    Span::printElement()
     std::vector<int>::iterator it = vec.begin();
     while (it < vec.end())
     {
-        std::cout << *it++ << std::endl;
+        std::cout << *it++ << " ";
     }
-    std::cout << vec.size() << std::endl;
+    std::cout << std::endl;
 }
 
-void    Span::addInOnce(std::vector<int>::iterator begin, std::vector<int>::iterator end)
+void    Span::addInOnce()
 {
-    for (std::vector<int>::iterator it = begin; it < end; it++)
+    
+    std::vector<int>::iterator it;
+    for (it = vec.end() - 1; it < vec.end(); it++)
     {
-        addNumber(*it);
+        addNumber(rand()%1000);
     }
 }

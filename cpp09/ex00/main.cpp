@@ -5,16 +5,8 @@ int main(int ac, char **av)
 {
 	if (ac == 2)
 	{
-		try
-		{
-			BitcoinExchange test(av[1]);
-			test.readDb();
-			test.parseInput();
-		}
-		catch(std::exception &e)
-		{
-			std::cerr << e.what() << std::endl;
-		}
+		BitcoinExchange test(av[1]);
+		test.readDb();
 	}
 	else 
 	{

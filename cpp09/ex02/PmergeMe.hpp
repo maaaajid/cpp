@@ -2,27 +2,21 @@
  
 #include <iostream>
 #include <vector>
+#include <deque>
 #include <cstdlib>
+#include <time.h>
 #include <algorithm>
+#include "VectSort.hpp"
+#include "DeqSort.hpp"
+
 class PmergeMe
 {
-	std::vector<int> vec;
-	std::vector<std::pair<int, int> > pair;
-	std::vector<int>::iterator it;
-	std::vector<int>::iterator it2;
-	std::vector<std::pair<int, int> >::iterator p_it;
+	VectSort vec;
+	DeqSort deq;
 public:
 	PmergeMe();
-	PmergeMe(char **av);
-	PmergeMe(PmergeMe &obj);
-	PmergeMe& operator=(PmergeMe &obj);
+	PmergeMe(char **av, int ac);
+	PmergeMe(const PmergeMe &obj);
+	PmergeMe& operator=(const PmergeMe &obj);
 	~PmergeMe();
-	class error: public std::exception
-	{
-		const char *what() const throw();
-	};
-
-	void	Pairwise();
-	void	recursion();
-	
 };
